@@ -1,0 +1,9 @@
+# Dirs to ignore
+z_Outils/
+
+# Files to ignore
+*.ctd~
+*.ctd~~
+*.ctd~~~
+*.doc
+*.docx
