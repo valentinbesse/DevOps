@@ -1,0 +1,32 @@
+On considère un tableau à deux dimensions, de dimensions (5, 4) de type numériques. Ecrire l'algorithme qui permet d'afficher la somme par ligne.
+
+// Debut
+
+	// DECLARATION
+	
+	T(5,4) : entier
+	i, j : entier	
+	sommme : entier
+	
+	// INITIALISATION
+	
+	somme = 0
+	
+	
+	// CORPS DU PROGRAMME
+	
+	POUR i DE 0 A 4
+	
+		POUR j DE 0 A 3
+		
+			somme = somme + T(i,j)
+			
+		FIN POUR
+		
+		AFF somme
+		somme = 0
+		
+	FIN POUR
+	
+
+// Fin

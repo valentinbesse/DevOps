@@ -1,0 +1,119 @@
+Calcul de la paie hebdomadaire de n ouvriers.
+
+Données en entrée : 
+	- coût horaire : 8€ sur une base de 35h
+	- les heures supplémentaires sont calculées de la façon suivante :
+		o 125% de la 36e à la 45e heure
+		o 150% au-delà de la 45e heure
+	- les pourcentages retenues de :
+		o sécurité sociale : 11.3%
+		o chômage : 2.12%
+		o retraite : 1.84%
+	
+Toutefois, un plafond au niveau du salaire est fixé pour le calcul de la retenue de la sécurité sociale. Ce plafond est fix" à 500.00€.
+Sera saisi pour chaque ouvrier, son nom et son nombre d'heures effectuées.
+	
+Données en sortie :
+On affichera
+	- le salaire brut
+	- les montants retenue
+	- le cumul des sommes versées à chacun des organismes
+	
+// Debut
+
+	// DECLARATION
+	nom : texte
+	
+	
+	nbHeures : réel
+	montantSecurite : réel
+	montantChomage : réel
+	montantRetraite : réel
+	montantSecuriteTot : réel
+	montantChomageTot : réel
+	montantRetraiteTot : réel
+	salaireBrut : réel
+	
+	nbOuvrier : entier
+	cpt : entier
+	
+	// INITIALISATION
+	nom : ""
+	
+	nbHeures = 0
+	montantSecurite = 0
+	montantChomage = 0
+	montantRetraite = 0
+	montantSecuriteTot = 0
+	montantChomageTot = 0
+	montantRetraiteTot = 0
+	salaireBrut = 35 * 8
+	
+	cpt = 0
+	
+	// CORPS
+	
+	AFF "Veuillez saisir le nombre d'ouvrier."
+	SAISIR nbOuvrier
+	
+	TANT QUE cpt <= nbOuvrier
+	
+		AFF "Veuillez saisir le nom de l'employé et le nombre d'heure effectées."
+		SAISIR nom, nbHeures
+	
+		SI nbHeures >= 35 
+			ALORS
+				SI nbHeures <= 45
+					ALORS
+						salaireBrut = salaireBrut + (nbHeures - 35) * 8 * 1.25
+					SINON
+						salaireBrut = salaireBrut + 10 * 8 * 1.25 + (nbHeures - 45) * 8 * 1.5
+				FIN SI
+				montantChomage = salaireBrut *0.0184
+				montantRetraite = salaireBrut 0.0212
+				SI salaireBrut >= 500
+					ALORS
+						montantSecurite = 500 * 0.113
+					SINON
+						montantSecurite = salaireBrut * 0.113
+				FIN SI
+				
+				montantSecuriteTot = montantSecuriteTot + montantSecurite
+				montantChomageTot = montantChomageTot + montantChomage
+				montantRetraiteTot = montantRetraiteTot + montantRetraite
+				cpt = cpt + 1
+				
+				AFF nom, " salaire brut : ", salaireBrut, ". Retenue sécurité sociale : ", montantSecurite, ". Retenue retraite : ", montantRetraite, ". Retenue chômage : ", montantChomage
+				
+			SINON
+				AFF "Erreur du nombre d'heure saisi."
+		FIN SI
+	FIN TANT QUE
+	
+	AFF "Le cumul des sommes versées à la sécurité sociale : ", montantSecuriteTot
+	AFF "Le cumul des sommes versées à la caisse des retraites : ", montantRetraiteTot
+	AFF "Le cumul des sommes versées à l'assurance chômage : ", montantchomageTot
+	
+\\ Fin
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

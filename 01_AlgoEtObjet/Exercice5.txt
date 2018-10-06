@@ -1,0 +1,74 @@
+On considère une classe de nb élèves. Pour chaque élèves, on saisit :
+	- le nom
+	- la note
+Afficher pour chaque élève s'il est admis ou non. Puis on affichera la note maximale, la note minimale et la moyenne de la classe.
+Les notes seront comprises entre 0 et 20.
+
+// Debut
+	// DECLARATION
+	nom : texte
+	
+	nbEleve : entier
+	cpt : entier
+	
+	note : réel
+	noteMax : réel
+	noteMin	: réel
+	moyenne : réel
+	sommeNotes : réel
+	
+	// INITIALISATION
+	nom << " "
+	
+	nbEleve << 0
+	cpt << 0
+	
+	note << 0
+	noteMax << 0
+	noteMin	<< 20
+	moyenne << 0
+	sommeNotes << 0
+	
+	// CORPS
+	AFF "Saisir le nombre d'élèves."
+	SAISIR nbEleve
+	
+	TANT QUE cpt <= nbEleve
+		AFF "Saisir le nom de l'élève et sa note."
+		SAISIR nom, note
+		
+		SI note >= 0 et <= 20 
+			ALORS
+				sommeNotes = sommeNotes + note
+			
+			SI note >= 10 
+				ALORS
+					AFF nom, " est admis(e)."
+				SINON
+					AFF nom, " est recalé(e)."
+			FIN SIN
+		
+			SI note > noteMax 
+				ALORS
+					noteMax = note
+			FIN SI
+			
+			SI note < noteMin 
+				ALORS
+					noteMin = note
+			FIN SI
+			
+				cpt = cpt + 1
+			SINON
+				AFF "Note invalide (entre 0 et 20)."
+				
+		FIN SI
+		
+	FIN TANT QUE
+	
+	moyenne = sommeNotes / nbEleve
+	AFF noteMin
+	    noteMax
+		moyenne
+		
+// Fin

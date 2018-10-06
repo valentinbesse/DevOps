@@ -1,0 +1,48 @@
+On considère un tableau EMPLOYES(600,4) rempli de type entier
+
+| Matricule | Salaire | Categorie (1 à 7) | Sexe (1/2) |
+|-----------|---------|-------------------|------------|
+|           |         |                   |            |
+...
+
+On considère le tableau PRIMES(7,2) rempli de type entier
+
+| Sexe 1 | Sexe 2 |
+|--------|--------|
+|        |        | catégorie (1 à 7)
+
+Ecrire l'algorithme qui permet d'afficher pour chaque matricule le salaire avec la prime de chaque employé. Cette prime dépend donc du sexe et de la catégorie à laquelle il appartient.
+
+Ex:
+Matricule 1 gagne 1700.
+...
+
+
+// Debut
+
+	// DECLARATION
+	
+		EMPLOYES(600,4) : entier
+		PRIMES(7,2) : entier
+		
+		i : entier
+		
+		somme : entier
+		
+		
+	// INITIALISATION
+	
+		somme = 0
+		
+	
+	// CORPS DE PROGRAMME
+	
+		POUR i DE 0 A 599
+		
+			somme = EMPLOYES(i,1) + PRIMES(EMPLOYES(i,2)-1,EMPLOYES(i,3)-1)
+			
+			AFF "Matricule ", i, " gagne ", somme
+			
+		FIN POUR
+		
+// Fin

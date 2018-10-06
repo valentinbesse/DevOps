@@ -1,0 +1,31 @@
+1. mkdir -p DOC/projet1/OLD tmp TRY/1 TRY/2 TRY/3; touch TRY/1/f1 TRY/1/f2
+
+2. cp ~/TRY/1/f1 ~/tmp
+
+3. cp ~/TRY/1/f* ~/DOC
+
+4. mv ~/TRY/1/f2 ~/TRY
+
+5. ls -Ra
+
+6. /home/ajc1/TRY/1/f1
+   ../TRY/1/f1
+   
+7. Voir les fichiers et répertoires cachés.
+
+8. Liste des répertoires et fichiers (visibles et cachés) du répertoire courant et des répertoires et fichiers du répertoire parents.
+
+9. uniquement . et ..
+
+10. a. chmod ug-r tmp/f1 ou chmod 100
+	b. chmod ug-x TRY ou chmod 644 
+
+11. head -1 * (mais essaie d'ouvrir aussi les repertoires)
+	
+12. cut -d: -f1 /etc/passwd | sort | 
+
+13. ls -Sal
+
+14. wc -l * | sort
+
+15. who | cut -d' ' -f1 | sort

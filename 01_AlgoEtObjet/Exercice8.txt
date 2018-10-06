@@ -1,0 +1,36 @@
+On considère un tableau de type caractère à une dimension de dimension 20. Remettre la chaine en supprimant les espaces vides dans cet autre tableau de façon. On garde toutefois la dimension 20.
+
+// Debut
+	
+	// DECLARATION
+	
+	T1(20) : caractère
+	T2(20) : caractère
+	
+	cpt : entier
+	cptEspace : entier
+	
+	// INITIALISATION
+	
+	cpt = 0
+	cptEspace = 0
+	
+	
+	// CORPS
+	
+	POUR cpt DE 0 A 19
+	
+		SI T1(cpt) == " "
+			ALORS
+				cptEspace = cptEspace + 1
+			SINON
+				SI cptEspace =! 0
+					ALORS
+						T2(cpt - cptEspace) = T1(cpt)
+						cptEspace = 1
+				FIN SI
+		FIN SI
+		
+	FIN POUR
+	
+// Fin

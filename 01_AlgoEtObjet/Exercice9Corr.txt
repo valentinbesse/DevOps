@@ -1,0 +1,61 @@
+On considère un tableau T à une dimension, de dimension N, inverser les valeurs de ce tableau  :
+	a): en utilisant un deuxième tableau T2
+	b): au sein du même tableau
+	
+a):
+// Debut
+
+	// DECLARATION
+	T1(N) : numerique
+	T2(N) : numerique
+	
+	i : entier
+	
+	
+	// INITIALISATION
+	
+	T2(:) = 0
+	
+	i = 0
+	
+	
+	// CORPS DU PROGRAMME
+	
+	POUR i DE 0 A N-1
+	
+		T2(N-1-i) = T1(i)
+		
+	FIN POUR
+
+// Fin
+
+b):
+// Debut
+	
+	// DECLARATION
+	T(N) : entier
+	i : entier
+	j : entier
+
+	tampon : reel
+	
+	
+	// INITIALISATION
+	
+	i = 0
+	j = N-1
+	
+	tampon = T(1)
+	
+	
+	// CORPS DU PROGRAMME
+	
+	TANT QUE i < j
+		tampon = T(i)
+		T(i) = T(j)
+		T(j) = tampon
+		i = i + 1
+		j = j - 1
+	FIN TANT QUE
+
+// Fin

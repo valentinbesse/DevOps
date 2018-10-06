@@ -1,0 +1,31 @@
+// Debut
+
+	// DECLARATION
+	
+	T1(20) : caractère
+	T2(20) : caractère
+	
+	i, j : entier
+	
+	
+	// INITIALISATION
+	
+	i, j = 0
+
+	// CORPS
+	
+	POUR i DE 0 A 19
+	
+		SI T1(i) != " "
+			ALORS
+				T2(j) = T1(i)
+				j = j + 1
+		FIN SI
+		
+	FIN POUR
+	
+	POUR i DE j A 19
+		T2(i) = " "
+	FIN POUR
+
+// Fin
