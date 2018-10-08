@@ -1,0 +1,34 @@
+1 : Copier le fichier /etc/passwd dans votre répertoire : 
+	cp /etc/passwd /home/ajc1/
+	
+	a: se déplacer sur 4 lignes 
+		:4
+	
+	b: remplacer le dernier caractère par un "."
+		$r.
+		($s/.\{1}$/./ pour remplacer le dernier caractère de la dernière ligne)
+	
+	c: supprimer la dernière lignes
+		:$d
+	
+	d: remplacer sh par shell dans tout le fichier	
+		:1,$s/sh/shell/g
+	
+	e: remplacer la premiere occurence de /bin par test
+		:1s/\bin/test/
+	
+	f: déplacer la dernière ligne en première ligne
+		:$ dd :1 P
+		:$m0
+	
+2: Changer la configuration de vi
+	vi .exrc
+	
+	a: mettre la numérotation des lignes
+		set number
+	
+	b: mettre la tabulation à 2 espaceset
+		set tabstop=2
+	
+	c: activer l'auto-indentationset
+		set autoindent

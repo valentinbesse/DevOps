@@ -1,0 +1,26 @@
+1. Rechercher les fichiers .tmp modifiées aujourd'hui.
+	find . -name '*.tmp' -type f -ctime -1
+	
+2. Rechercher tou les fichiers commençant par f consultés aujourd'hui
+	find . -name 'f*' -type f -atime -1
+	
+3. Rechercher tous les répertoires de votre arborescence commençant par d.
+	find . -name 'd*' -type d
+	
+4. Rechercher des fichiers dotés des permissions suiventes rwxr-xr-x.
+	find . -perm 755
+	
+5. Rechercher dans votre arborescences les noms des fichiers contenant le mot 'set' en début de ligne.
+	find -type f -exec grep 'set*' {} -l \;
+
+6. Rechercher tous les exécutables commençant par 'f' dans votre répertoire de connexion et supprimez les après confirmations
+	find . \(-name 'f*' -perm -a=x -type f \) -ok rm {} \;
+
+7. Afficher combien il y a de fichiers normaux dans tout l'arborescence vous appartenant pour lesquels vous acez tous les droits (en supprimant les messages d'erreurs, s'il y en a).
+	find / -user 'ajc1' -type f -perm -u=rwx 2>/dev/null | wc -l
+	
+8. Déplacer dans les répertoire caché ".corbeille", tous les fichiers commençant par "ex" pour lesquels l'utilisateur a tous les droits
+	find . -type f -name 'ex*' -perm -u=rwx 2>/dev/null -exec mv {} ./.corbeille/ \;
+
+
+	
