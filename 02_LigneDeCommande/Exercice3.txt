@@ -11,7 +11,7 @@
 	find . -perm 755
 	
 5. Rechercher dans votre arborescences les noms des fichiers contenant le mot 'set' en début de ligne.
-	find -type f -exec grep 'set*' {} -l \;
+	find / -type f -exec grep '^set' {} -l \;
 
 6. Rechercher tous les exécutables commençant par 'f' dans votre répertoire de connexion et supprimez les après confirmations
 	find . \(-name 'f*' -perm -a=x -type f \) -ok rm {} \;
