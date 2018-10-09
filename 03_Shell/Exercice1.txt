@@ -1,0 +1,28 @@
+1. Crée un alias nommé "go" qui permet de se repositioner dans le répertoire de connexion et lister le contenu.
+	alias go='cd $HOME; ls -l'
+	
+2. En utilisant la substitution de commande, assignez la date du jour dans la variable jour.
+	jour=date
+	
+3. Assignez à la variable MON_NOM afin qu'elle contienne votre nom de connexion.
+	MON_NOM=$LOGNAME
+	
+	- comment visualiser le contenu de cette variable ?
+		echo $MON_NOM
+	
+	- démarrer un shell fils et regardez le contenu de la variable, l'affiche-t-il ?
+		non.
+		
+	- l'alias créé au sein du shell père (cf. question 1) est-il effectif ?
+		non.
+	
+	- revenez au shell père, connait-il toujours cette variable ?
+		oui.
+		
+4. Que faire afin que le shell fils soit capable de visualiser cette variable ?
+	export MON_NOM
+
+5. Créer un répertoire Exos et faire en sorte que tous les fichiers exécutables de ce répertoire soient de nimporte où.
+	PATH=$PATH:$HOME/Exos
+	export PATH
+	Peut être ajouter dans le .bashrc
