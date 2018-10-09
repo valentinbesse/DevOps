@@ -1,0 +1,44 @@
+1. Afficher les processus avec les options standards.
+	ps -ef
+
+2. Afficher vos processus sous forme d'arbre (hiérarchie).
+	ps -ejH
+	ps axjf
+
+3. Effectuer ces taches :
+	a. lancer "sleep 10000" en arrière-plan
+		sleep 10000&
+		
+	b. vérifier qu'il est actif
+		jobs
+		
+	c. passer le en premier plan
+		kill -SIGSTOP PID
+		fg
+	
+	d. stopper le
+		Ctrl + Z
+		
+	e. faire un ps -l et observer sa priorité et son état
+		Stat : T, PRI : 80
+		
+	f. repasser le en arrière plan
+		bg
+		
+	g. faire un ps -l et observer sa priorité et son état
+		Stat : S, PRI : 80
+	
+	h. diminuer sa priorité de 10
+		renice -10 PID (mais en SU)
+	
+	i. faire un ps -l et observer sa priorité et son état
+		Stat : S, PRI : 70
+		
+		a. tuer le
+			kill -15 PID
+		
+4. Afficher tous les fichiers de toute l'arborescence à l'écran avec une extension ".c" vous redirigerez les messages d'erreurs dans un fichiers "erreurs.log" de votre répertoire de connexion. Ce processus sera lancé en arrière plan.
+	find / -type f -name '*.c' 2>erreur.log
+
+5. Sauver dans un fichier "recap.c" la liste de tous les fichiers de l'arborescence d'extension ".c" et les messages d'erreurs vers la poubelle (/dev/null). Ce processus sera lancé en arrière plan.
+	find / -type f -name '*.c' 2>/dev/null 1>recap.c &
