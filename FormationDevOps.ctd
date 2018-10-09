@@ -1,5 +1,6 @@
 <?xml version="1.0" ?>
 <cherrytree>
+	<bookmarks list="4"/>
 	<node custom_icon_id="0" foreground="" is_bold="True" name="Formation DevOps" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538577726.46" ts_lastsave="1538646508.66" unique_id="1">
 		<rich_text>Penser à bien valider sa présence sur : </rich_text>
 		<rich_text link="webs http://quest.ajc-formation.fr:8000">http://quest.ajc-formation.fr:8000</rich_text>
@@ -949,7 +950,7 @@ Code wifi : 7894561230</rich_text>
 
       </rich_text>
 		</node>
-		<node custom_icon_id="0" foreground="" is_bold="False" name="Shell" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645440.47" ts_lastsave="1539071886.68" unique_id="4">
+		<node custom_icon_id="0" foreground="" is_bold="False" name="Shell" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645440.47" ts_lastsave="1539097230.86" unique_id="4">
 			<rich_text scale="h1">Prof. : ASSOUS Steeve
 
 </rich_text>
@@ -961,7 +962,273 @@ Code wifi : 7894561230</rich_text>
 			<rich_text>
 
 
-Gestion des processus :</rich_text>
+</rich_text>
+			<rich_text scale="h1">Qu'est-ce-que le shell ?</rich_text>
+			<rich_text>
+    Le shell est in interpréteur de commandes :
+        - initialise l'environnement
+        - génère le prompt
+        - assigne les variables
+        - effectue les substitutions de variables et commandes
+        - interprète les métacaractères
+        - génère les noms de fichiers
+        - gère les redirections et filtres
+        - gère l'historique des commandes
+        - complétion de noms de fichiers
+        - création d'alias
+        
+    Différents types de shell :
+        - Ksh : Korn Shell
+        - Sh : Bourne shell
+        - Csh
+        - Bash : Bourn again shell
+        
+</rich_text>
+			<rich_text scale="h1">Que se passe-t-il lors de la connexion ?</rich_text>
+			<rich_text>
+    Envoie de l'invite de connexion
+        - saisie des informations de connexion
+        
+    Effecture la connexion
+        - validation du login
+        - place l'utilisateur dans son repertoire de connexion
+        - lance l'interpréteur de commandes
+        
+    Etapes de l'interpréteur de commandes 
+        - execute le fichier “/etc/profile”
+        - execute le fichier “~/.profile”
+        - execute le fichier “.bashrc” (fichier bash utilisé)
+        - interpréteur de commande        
+    
+    umask fonctionne à l'inverse du chmode :
+    </rich_text>
+			<rich_text justification="left"></rich_text>
+			<rich_text>
+
+</rich_text>
+			<rich_text scale="h1">Substitution de variables</rich_text>
+			<rich_text>
+    Une variable
+        - est un nom associé à une valeur
+        - </rich_text>
+			<rich_text weight="heavy">n'est valable que dans le shell où elle a été défini</rich_text>
+			<rich_text>
+        - doit commencer par une lettre, et ne contenir que des lettres, chiffres et underscore
+        
+    Affectation var = “toto”
+    
+    Affichage echo = $var
+    
+</rich_text>
+			<rich_text scale="h1">Notion d'Alias : “alias”</rich_text>
+			<rich_text>
+    un alias est une substitution d'une commande par un raccourci
+    
+    L'alias est prioritaire sur les fonctions, commandes 
+    
+    On peut rendre un alias permanent en le rajoutant au .bashrc.
+    On le supprime avec : unalias [-a] name [name ...]
+    
+</rich_text>
+			<rich_text scale="h1">Liste des variables : “set”</rich_text>
+			<rich_text>
+    Permet d'afficher les noms et valeurs de toutes les variables du shell en zone de données et dans l'environnement.
+    
+    unset nomvariable
+        - réinitialise le contenu d'une variable
+
+    unset 
+        - réinitialise toutes les variables.
+        
+</rich_text>
+			<rich_text scale="h2">Variables d'environnement : “env”</rich_text>
+			<rich_text>
+    Permet de lister les variables de l'environnement
+    Certaines variables décrivent des informations liées au système
+        - HOME
+        - PATH : définit les chemins à scruter lors de l'execution des commandes
+        - PS1 : prompt primaire
+        - PS2 : prompt secondaire
+        - TERM : le type de terminal
+        - PWD : le dernier repertoire de travail
+        - LOGNAME : le nom de l'utilisateur logué
+        
+Export de variables
+    Par défaut une variable a une portée locale et n'est donc accessibnle uniquement dans le shell où elle a été défini.
+    
+    La commande “export” permet de promouvoir les variables ent tant que variables d'environnement et les rend accessibles dans l'environnement utilisateur
+        - export nomVariable
+        
+</rich_text>
+			<rich_text scale="h1">Rendre un fichier executable</rich_text>
+			<rich_text>
+    Creer un script
+        - vi nomScript.sh ...
+        
+    Le rendre executable
+        - chmod 755 nomScript.sh 
+    
+    Execution
+        - ./nomScript.sh
+        
+     Pour rendre le chemin disponible dans le PATH, il faut le rajouter, par exemple dans .bashrc ou .profile.
+     Ne pas oublier de faire l'export.
+     
+</rich_text>
+			<rich_text scale="h1">Substitution de commande</rich_text>
+			<rich_text>
+    Deux façons :
+      1. jour=$(date)
+      2. jour=`date`
+
+</rich_text>
+			<rich_text scale="h1">Metacaractères</rich_text>
+			<rich_text>
+   • # : commentaire
+   • $ : substitution de variable
+   • &amp; : lancer en arrière-plan
+   • &amp;&amp; : enchainement conditionnel
+   • || : enchainnement conditionnel
+   • | : filtre
+   • &gt; : redirige la sortie standard
+   • 2&gt; : redirige la sortie erreur
+   • ' : délimite une chaine de caractères. Les caractères spéciaux sauf \ et ` perdent leur signification
+   • &quot; : délimite une chaine de caractères. Les caractères spéciaux sauf \, $ et ` perdent leur signification
+   • `cmd` : Execution et substitution de commandes
+   • $(cmd) : Execution et substitution de commandes
+   • \ : caractère d'échappement
+   • &gt;&gt; : redirection de la sortie standard avec ajout.
+
+</rich_text>
+			<rich_text scale="h1">Passage d'argument</rich_text>
+			<rich_text>
+    Les paramètres positionnels
+      ◇  Le nom du fichier et les paramètres de la ligne de commande sont stockés et peuvent être récupérés au sein d'un shell script
+         ▪ $0 : nom de domaine (du script)
+         ▪ $1-9 : les neufs premiers paramètres du script
+         ▪ $# : nombre total de paramères
+         ▪ $* : Liste des arguments
+         ▪ $@ : 
+
+    Variables spéciales
+      ◇ $? : code retour de la dernière commande exécutée (0 réussi, 1 echec)
+      ◇ $$ : PID du shell actif
+      ◇ $! : PID du dernier processus lancé en arrière plan
+      ◇ $- : options du shell
+
+    exit x : permet de sortir avec un code retour de x (0-255)
+      ◇  théoriquement :
+         ▪ 0 : si tout se passe bien
+         ▪ 1 : si erreur dans la commande
+         ▪ 2 : si commande fausse
+         ▪ </rich_text>
+			<rich_text weight="heavy">Attention ! Il y a de nombreux contres exemples.</rich_text>
+			<rich_text>
+
+</rich_text>
+			<rich_text scale="h1">Commande “shift”</rich_text>
+			<rich_text>
+    Syntaxe :
+        shift [n]
+    
+    But :
+      ◇ décale de n arguments vers la gauche
+      ◇ n prend 1 par défaut
+      ◇ met à jour la variable $#
+
+</rich_text>
+			<rich_text scale="h1">Saisie à l'écran “read”</rich_text>
+			<rich_text>
+    Permet la saisie de chaine de caractère à partir du clavier.
+    
+    Options :
+      • -p : read -p “Saisir un nom” nom, affiche une phrase
+      • -e : echo -e “Nom Saisi \n” $echo
+
+</rich_text>
+			<rich_text scale="h1">Double expansion : “eval”</rich_text>
+			<rich_text>
+    “eval” construit une commande en concatènant ses arguments.
+    Le shell lit et exécute cette commande.
+    </rich_text>
+			<rich_text justification="left"></rich_text>
+			<rich_text>
+    
+Opérations sur les entiers : “expr”
+    Permet l'arithmétique entière sur les valeurs : + - / % \*</rich_text>
+			<table char_offset="1260" col_max="60" col_min="40">
+				<row>
+					<cell>0</cell>
+					<cell>rwx</cell>
+					<cell>rw-</cell>
+				</row>
+				<row>
+					<cell>1</cell>
+					<cell>rw-</cell>
+					<cell>rw-</cell>
+				</row>
+				<row>
+					<cell>2</cell>
+					<cell>r-x</cell>
+					<cell>r--</cell>
+				</row>
+				<row>
+					<cell>3</cell>
+					<cell>r--</cell>
+					<cell>r--</cell>
+				</row>
+				<row>
+					<cell>4</cell>
+					<cell>-wx</cell>
+					<cell>-w-</cell>
+				</row>
+				<row>
+					<cell>5</cell>
+					<cell>-w-</cell>
+					<cell>-w-</cell>
+				</row>
+				<row>
+					<cell>6</cell>
+					<cell>--x</cell>
+					<cell>---</cell>
+				</row>
+				<row>
+					<cell>7</cell>
+					<cell>---</cell>
+					<cell>---</cell>
+				</row>
+				<row>
+					<cell></cell>
+					<cell>Repertoire</cell>
+					<cell>Fichier</cell>
+				</row>
+			</table>
+			<table char_offset="5469" col_max="800" col_min="40">
+				<row>
+					<cell>var = 10</cell>
+					<cell>10</cell>
+				</row>
+				<row>
+					<cell>x=var</cell>
+					<cell>var</cell>
+				</row>
+				<row>
+					<cell>y=\$$x</cell>
+					<cell>$var</cell>
+				</row>
+				<row>
+					<cell>echo $y</cell>
+					<cell>$var</cell>
+				</row>
+				<row>
+					<cell>eval echo $y</cell>
+					<cell>10</cell>
+				</row>
+				<row>
+					<cell>Commande</cell>
+					<cell>Affichage</cell>
+				</row>
+			</table>
 		</node>
 		<node custom_icon_id="0" foreground="" is_bold="False" name="Role et Comportement du Consultant" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645450.69" ts_lastsave="1538645450.69" unique_id="5">
 			<rich_text></rich_text>
@@ -1004,6 +1271,17 @@ Gestion des processus :</rich_text>
 		</node>
 		<node custom_icon_id="0" foreground="" is_bold="False" name="Puppet" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645605.17" ts_lastsave="1538645605.17" unique_id="18">
 			<rich_text></rich_text>
+		</node>
+		<node custom_icon_id="0" foreground="" is_bold="False" name="Tips" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1539095105.36" ts_lastsave="1539095133.62" unique_id="19">
+			<rich_text scale="h1">Divers</rich_text>
+			<rich_text>
+
+    </rich_text>
+			<rich_text scale="h2">Shell</rich_text>
+			<rich_text>
+      • \n : retour à la ligne
+      • \t : tabulation horizontale
+      • \v : tabulation verticales</rich_text>
 		</node>
 	</node>
 </cherrytree>
