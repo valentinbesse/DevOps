@@ -16,15 +16,18 @@
 2. Ecrire un shell script qui affiche le premier et le dixième argument.
 	#!/bin/bash
 
-	echo $1
-	echo ${10}
+	echo "Arg 1 : $1"
+	echo "Arg 10 : ${10}"
+	
+	der = \${$#}	# Affiche le dernier argument
+	eval echo "Dernier argument : " $der
 	
 3. Ecrire un script qui affiche :
 	- le nombre d'arguments saisis
-		echo $#
+		echo "Nombre Arg : $#"
 	
 	- les 3 premiers arguments sur des lignes différentes
-		echo -e "$1\n$2\n$3"
+		echo -e "$1\n$2\n$3\n"
 		
 4. Ecrire un script qui demande à l'utilisateur son nom, son prénom, son age et qui les affiche sous la forme suivante : Informations : Prénom NOM a XX ans
 	#!/bin/bash
@@ -48,11 +51,12 @@
 	read -p "Saisir le nom de l'utilisateur " nomUtilisateur
 	
 	homeU="/home/$nomUtilisateur/"
-	nombreElement=$(expr $(ls -l $homeU | wc -l) - 1)
+	#nombreElement=$(expr $(ls -l $homeU | wc -l) - 1)
+	nbElm=$(ls -1 $homeU|wc -l)
 	
-	echo -e "Utilisateur : $nomUtilisateur\nHome directory : $homeU\n$(ls $homeU)\nNombre d'elements : "$nombreElement"
+	echo -e "Utilisateur : $nomUtilisateur\nHome directory : $homeU\n$(ls $homeU)\nNombre d'elements : "$nbElm"
 	
 7. Ecrire un shell script qui affiche la date sous la forme suivante :
 Il est XX heures YY minutes et ZZ secondes.
-	echo "Il est $(date + heures YY minutes et ZZ secondes."
+	echo "Il est $(date +%H) heures $(date +%M) minutes et $(date +%S) secondes."
 	

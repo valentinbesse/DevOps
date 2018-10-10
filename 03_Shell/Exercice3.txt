@@ -1,0 +1,28 @@
+1. Ecrire un shell script qui affiche le nombre d'arguments de la ligne de commande. S'il n'y en a pas exactement 3, un message d'erreur s'affichera. Si le nombre est correct, on affichera ces arguments
+	voir c3_1.sh
+	
+2. Ecrire un script qui demande le nom de l'utilisateur, en affiche sa home directory et le nombre d'élémebts. On affichera un message d'erreur si l'utilisateur n'existe pas.
+	voir c3_2.sh
+	
+3. Ecrire un shell script qui demande à l'utilisateur un caractère et traiter les 3 cas suivants :
+	S'il saisit 'a' ou 'A' on affichera "A bientot" 
+	S'il saisit 'b' ou 'B' on affichera  "Bienvenue"
+	S'il saisit 'c' ou 'C' on affichera  "Fin"
+Traiter le cas ou l'utilisateur n'a saisi aucun de ces caractères
+	voir c3_3.sh
+
+4. Ecrire un shell script qui teste le premier argument de la ligne de commande :
+	- si c'est -a : l'utilisateur saisit un caractère
+		Si le caractère saisi est un 'D', afficher la date; sinon lister le contenu du répertoire courant sous la forme de ligne
+	- si c'est -b : l'utilisateur saisit un entier
+		le programme affiche un message indiquant si le nombre saisi est strictement inférieur à 100 ou s'il est supérieur ou égal à 100
+	- si c'est -c : l'utilisateur saisit un nom de fichier. Le script indique si c'est un fichier ou un répertoire.
+	Si aucune de ces options n'est saisi, un message d'erreur s'affiche.
+	voir c3_4.shd	
+	
+5. Ecrire un shell script qui effectue la duplication d'un fichier. Tester les conditions suivantes :
+	- le programme est correctement utilisé (pas plus de 2 arguments)
+	- le fichier source et destination ont le même nom (afficher un message indiquant la copie est impossible)
+	- le fichier source existe ? Dans le cas où il n'existe pas, on ne peut pas copier
+	- le cas où la destination existe. Ecrase-t-on le fichier de destination l'utilisateur à le choix).
+	voir c3_5.sh

@@ -950,7 +950,7 @@ Code wifi : 7894561230</rich_text>
 
       </rich_text>
 		</node>
-		<node custom_icon_id="0" foreground="" is_bold="False" name="Shell" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645440.47" ts_lastsave="1539097230.86" unique_id="4">
+		<node custom_icon_id="0" foreground="" is_bold="False" name="Shell" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645440.47" ts_lastsave="1539179738.63" unique_id="4">
 			<rich_text scale="h1">Prof. : ASSOUS Steeve
 
 </rich_text>
@@ -1154,8 +1154,137 @@ Export de variables
 			<rich_text justification="left"></rich_text>
 			<rich_text>
     
-Opérations sur les entiers : “expr”
-    Permet l'arithmétique entière sur les valeurs : + - / % \*</rich_text>
+</rich_text>
+			<rich_text scale="h1">Opérations sur les entiers : “expr”</rich_text>
+			<rich_text>
+    Permet l'arithmétique entière sur les valeurs : + - / % \*
+    
+</rich_text>
+			<rich_text scale="h1">Code retour</rich_text>
+			<rich_text>
+    Chaque commande génère un code retour
+      •   0 pour vrai, autre pour faux
+
+</rich_text>
+			<rich_text scale="h1">Formulation de conditions</rich_text>
+			<rich_text>
+    On distingue plusieurs manières de formuler des conditions.
+    2 syntaxes :
+      • test expression
+      • [ expression ]
+
+    Ces conditions peuvent porter sur :
+      • les fichiers
+      • les chaines de caractères
+      • les entiers
+
+</rich_text>
+			<rich_text scale="h1">Opérations sur les fichiers</rich_text>
+			<rich_text>
+    Syntaxe :
+      • test -option nomfichier
+      • [ -option nomfichier ]
+
+    Quelques options 
+      • -f : fichier normal
+      • -d : un repertoire
+      • -c : fichier en mode caractère
+      • -b : fichier en mode bloc
+      • -p : tube nommée
+      • -w : accès ecriture
+      • -r : accès lecture
+
+</rich_text>
+			<rich_text scale="h1">Opérations sur les entiers</rich_text>
+			<rich_text>
+    Syntaxe :
+      • test var -option argument
+      • [ var -option argument ]
+
+    Quelques options :
+      • -eq : égal
+      • -ne : not equal
+      • -lt : less than
+      • -gt : greater than
+      • -le : less or equal
+      • -ge : greater or equal
+
+</rich_text>
+			<rich_text scale="h1">Opérations sur les chaines</rich_text>
+			<rich_text>
+    test -z “variable”
+      • zero, retour OK si la variable est vide (test -z “$a”)
+
+    test -n “variable”
+      • non-zero, retour OK si la variable n'est pas vide (test -z “$a”)
+
+    test “variable” = &quot;chaine&quot;
+      • OK si les deux chaines sont identiques
+         
+    [ “variable” != “chaine” ]
+      • OK si les deux chaines sont différentes
+
+</rich_text>
+			<rich_text scale="h1">Combiner les critères</rich_text>
+			<rich_text>
+    On peut combiner les critères via :
+      • -a : and
+      • -o : or
+      • ! : not
+      • (...) : groupement des combinaisons. Les parenthèses doivent être vérouillées \(...\)
+
+    ex:
+        test -d “rep1” -a -w “rep1”
+        
+</rich_text>
+			<rich_text scale="h1">Intruction “if”</rich_text>
+			<rich_text>
+    if &lt;commandes_condition&gt;
+    then
+        &lt;commandes executées si condition réalisée&gt;
+    else
+        &lt;commendes executées si condition pas réaliséee&gt;
+    fi
+
+    On peut aussi préciser le elif en fait un else if.
+    Si la dernière condition n'est pas réalisée on en teste une nouvelle.
+    
+</rich_text>
+			<rich_text scale="h1">Choix multiples “case”</rich_text>
+			<rich_text>
+    La commande case esac permet de vérifier le contenu d'une variable ou d'un résultat de manière multiple
+        case var in
+                    Modele1) commandes ;;
+                    Modele2) commandes ;;
+                    *) action_defaut ;;
+        esac
+    
+    Le modèle est soit un simple texte, soit composé de caractères spéciaux.
+    
+    Chaque bloc de commandes lié au modèle doit se terminer par deux points virgules
+    
+    Dès que le modèle est véfifié, le bloc de commandes correspondant est éxécuté
+    
+    L'étoile en dernière position (chaine variable) est l'action par défaut si aucun critère n'est vérifié
+    
+</rich_text>
+			<rich_text scale="h2">    Formation des “case”</rich_text>
+			<rich_text>
+        Quelques caractères
+            • * :chaine variable (même vide)
+            • ? : un seul caractères
+            • [...] : plage de caractères
+            • [!...] : négation de la plage de caractères
+            • | : ou logique
+
+         ex :
+            1)
+            xyz)
+            x??)
+            *x)
+            [cp]*
+            *[!0-9]
+            </rich_text>
 			<table char_offset="1260" col_max="60" col_min="40">
 				<row>
 					<cell>0</cell>
