@@ -4,10 +4,13 @@
 
 aide()
 {
+    echo "-----------------------------------"
     echo "Proto : $0 source destination"
+    echo "-----------------------------------"
     echo "Code Retour 1 : Pbme Arguments"
     echo "Code Retour 2 : source et dest identiques"
     echo "Code Retour 3 : Source Inexistante"
+    echo "-----------------------------------"
 }
 
 if [ $# -ne 2 ]
@@ -28,8 +31,8 @@ fi
 
 if test ! -e $1
 then
-	aide
 	echo "Source $1 Inexistante !!!"
+	aide
 	exit 3
 fi
 
