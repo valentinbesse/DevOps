@@ -1,0 +1,17 @@
+1. Ecrire un shell script qui affiche le nombre d'options et d'arguments passés dans la ligne de commande :
+	ex: script -a fic -b fic2 fic3
+	(il y a 2 options et 3 arguments)
+	voir c4_1.sh
+	
+2. Ecrire un programme appelé "repere" qui s'exécutera en tache de fond et qui vérifiera toutes les 60 secondes si un utilisateur particulier s'est connecté sur le système.
+Le nom de l'utilisateur sera passé en argument de la ligne de commande au programme "repere". Dès que l'utilisateur se connecte on affichera un message comportant le nom de l'utilisateur et le terminal utilisé.
+	voir c4_2.sh
+	
+3.Ecrire un script qui permet de récupérer l'ensemble des utilisateurs dont le préfixe sera saisi en ligne de commande.
+On affichera le nombre d'utilisateurs de ce préfixe
+Pour chacun des utilisateurs, on affichera :
+	- son nom d'utilisateur
+	- son ID
+	- son répertoire de connexion
+	- au sein de ce répertoire de connexion, le nombre de fichiers et le nombnre de répertoires
+	voir c4_3.sh

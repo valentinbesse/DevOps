@@ -950,7 +950,7 @@ Code wifi : 7894561230</rich_text>
 
       </rich_text>
 		</node>
-		<node custom_icon_id="0" foreground="" is_bold="False" name="Shell" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645440.47" ts_lastsave="1539179738.63" unique_id="4">
+		<node custom_icon_id="0" foreground="" is_bold="False" name="Shell" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645440.47" ts_lastsave="1539271142.07" unique_id="4">
 			<rich_text scale="h1">Prof. : ASSOUS Steeve
 
 </rich_text>
@@ -1284,7 +1284,170 @@ Export de variables
             *x)
             [cp]*
             *[!0-9]
-            </rich_text>
+            
+</rich_text>
+			<rich_text scale="h1">Structures itératives</rich_text>
+			<rich_text>
+    while, until, for
+    
+</rich_text>
+			<rich_text scale="h2">    Boucle While</rich_text>
+			<rich_text>
+        La commande while permet une boucle conditionnelle “tant que&quot;
+        
+        Tant que la condition est réalisée, le boc de eommande est éxécutée:
+        On sort si la condition n'est plus valable
+        ex:
+            1: while condition
+                do
+                    commande
+                done
+             
+                ou
+             
+             2: while
+                bloc d'instruction formant la condition
+                do
+                    commande
+                done
+             
+             3: cpt=1
+                while [ $cpt -le 10 ]
+                do
+                    echo “ cpt : $cpt ”
+                    ((cpt=$cpt+1))
+                
+                done &gt; fichier    # redirige le flux vers un fichier
+
+</rich_text>
+			<rich_text scale="h2">    Boucle until</rich_text>
+			<rich_text>
+        La commande until permet une boucle conditionnelle “jusqu'a&quot;
+        
+        Dès que la condition est réalisée, on sort de la bloucle
+        
+        ex 1:     until condition
+                    do
+                        commandes
+                    done     
+        
+        ex 2:     until
+                    bloc d'instructions formant la condition
+                    do
+                        commandes
+                    done
+                    
+        ex 3:     cpt=1
+                    until [ $cpt -ge 11 ]
+                    do
+                        echo “cpt : $cpt”
+                        ((cpt++))
+                    done &gt; fichier
+                    
+</rich_text>
+			<rich_text scale="h2">    Boucle for</rich_text>
+			<rich_text>
+        La boucle for ne se base pas sur une quelqconque incrémentation de valeur mais sur une liste de valeurs, de fichiers...
+        
+        ex1:   for var in liste
+                do
+                    commandes
+                done
+                
+        ex 2: for var in 1 2 cinq 7 11  # passe de valeur en valeur
+                do
+                    echo “var : $var”
+                done
+                eho “Fin”
+                
+        ex 3: for var in $* # passe par les valeurs saisies en arguments
+                do
+                    echo “var : $var”
+                done
+                echo “Fin”
+                
+        ex 4: for var in $(seq 1 5) # passe par les valeurs 1 2 3 4 et 5 (seulement valeurs entière)
+                do
+                    echo &quot;var : $var
+                done
+                echo “Fin”
+                
+        ex 5: for var in *  # prend tous les éléments du repertoire dans lequel on execute le script
+                do
+                    echo &quot;elm : $var
+                done
+                echo “Fin”
+                
+        ex 6: for var in `grep “^unix” /etc/passwd|cut -d: -f1` # prend tous les noms d'utilisateurs qui commence par unix
+                do
+                    echo “user : $var”
+                done
+                echo “Fin&quot;
+
+</rich_text>
+			<rich_text scale="h2">    Sortie anticipée “break”</rich_text>
+			<rich_text>
+        La commande break permet d'interrompre une boucle
+        
+        Dans ce cas le script continue après la commande done
+        
+        Elle peut prendre un argument numérique indiquant le nombre de boucles à sauter, dans le cadre de boucles imbriquées (rapidement illisible).
+
+</rich_text>
+			<rich_text scale="h1">    Remonter en début de boucle : “continue”</rich_text>
+			<rich_text>
+        La commande continue permet de relancer une boucle et d'effectuer un nouveau passage.
+        
+        Elle peut prendre un argument numérique indiquant le nombde de boucles à relancer (on remonte de n boucles).
+        Le script redémarre à la commande do.
+        
+        ex 1: while #1
+                do
+                    while   #2
+                    do
+                    
+                    continue    # remonte à la boucle #2 si continue 2 alors remonte à la boucle #1                    
+                    done
+                    
+                continue    # remonte au début de la boucle 1                    
+                    
+                done
+
+</rich_text>
+			<rich_text scale="h2">    Code retour “Exit”</rich_text>
+			<rich_text>
+        Syntaxe :
+            exit [n]
+        
+        Stoppe l'execution du programme et positione le code retour à n
+        
+        Si aucun argument n'est spécifié, la valeur de retour est celle de la dernière instruction ecécutée avant la commande “exit”
+        
+        Les valeurs autorisées pour n sont comprises entre 0 et 255
+        
+</rich_text>
+			<rich_text scale="h1">Capture des signaux “Trap”</rich_text>
+			<rich_text>
+    La commande trap permet d'effectuer 3 opérations sur les signaux
+        trap ‘cmds’ nosig nosig nosig
+            capture des signaux et exécution des commandes “cmds” à la reception d'un signal
+        trap &quot; nosig nosig nosig
+            ignore les signaux, n'effectue aucune opération à la reception d'un signal
+        trap nosig nosig
+            réinitialise les signaux, rétablissement des actions par défaut
+    
+    La commande trap peut etre placée n'importe où dans un shell script.
+    Dependant, un placement judicieux permet d'effectuer des traitements évolués.
+    
+    Ex: si une partie du programme ne doit pas être interrompue, on peut positionner   un trap qui ignorera tous les signaux avant cette partie du code
+        
+        trap ‘ ’ 15 # interception du signal 15
+        
+        code
+        ...
+        
+        trap 15 # rétablissement du signal 15          
+</rich_text>
 			<table char_offset="1260" col_max="60" col_min="40">
 				<row>
 					<cell>0</cell>
@@ -1401,7 +1564,7 @@ Export de variables
 		<node custom_icon_id="0" foreground="" is_bold="False" name="Puppet" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645605.17" ts_lastsave="1538645605.17" unique_id="18">
 			<rich_text></rich_text>
 		</node>
-		<node custom_icon_id="0" foreground="" is_bold="False" name="Tips" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1539095105.36" ts_lastsave="1539095133.62" unique_id="19">
+		<node custom_icon_id="0" foreground="" is_bold="False" name="Tips" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1539095105.36" ts_lastsave="1539250037.63" unique_id="19">
 			<rich_text scale="h1">Divers</rich_text>
 			<rich_text>
 
@@ -1410,7 +1573,9 @@ Export de variables
 			<rich_text>
       • \n : retour à la ligne
       • \t : tabulation horizontale
-      • \v : tabulation verticales</rich_text>
+      • \v : tabulation verticales
+      • dirname $HOME/Exos/C2_3.sh : renvoie le chemin (repertoire sans nom de fichier)
+      • basename $HOME/Exos/C2_3.sh : renvoie le nom du fichier</rich_text>
 		</node>
 	</node>
 </cherrytree>
