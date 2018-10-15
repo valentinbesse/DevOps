@@ -7,7 +7,7 @@
 		<rich_text> (matin et après-midi).
 
 Code wifi : 7894561230</rich_text>
-		<node custom_icon_id="0" foreground="" is_bold="False" name="Algo et Objet" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538577731.01" ts_lastsave="1539071272.95" unique_id="2">
+		<node custom_icon_id="0" foreground="" is_bold="False" name="Algo et Objet" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538577731.01" ts_lastsave="1539590682.81" unique_id="2">
 			<rich_text scale="h1">Prof. : ASSOUS Steeve
 
 </rich_text>
@@ -31,13 +31,13 @@ Code wifi : 7894561230</rich_text>
 			<rich_text scale="h2">En POO :</rich_text>
 			<rich_text>
     Objet contient 3 concepts fondamentaux : 
-        - </rich_text>
+      • </rich_text>
 			<rich_text weight="heavy">polymorphysme</rich_text>
 			<rich_text>
-        - </rich_text>
+      • </rich_text>
 			<rich_text weight="heavy">encapsulation</rich_text>
 			<rich_text>
-        - </rich_text>
+      • </rich_text>
 			<rich_text weight="heavy">héritage</rich_text>
 			<rich_text>
         
@@ -1522,13 +1522,172 @@ Export de variables
 				</row>
 			</table>
 		</node>
-		<node custom_icon_id="0" foreground="" is_bold="False" name="Role et Comportement du Consultant" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645450.69" ts_lastsave="1538645450.69" unique_id="5">
-			<rich_text></rich_text>
+		<node custom_icon_id="0" foreground="" is_bold="False" name="Role et Comportement du Consultant" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645450.69" ts_lastsave="1539588940.07" unique_id="5">
+			<rich_text>Prof. Khaida Armand
+
+Code :
+</rich_text>
 		</node>
-		<node custom_icon_id="0" foreground="" is_bold="False" name="Red Hat System Administration" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645474.36" ts_lastsave="1538645474.36" unique_id="6">
-			<rich_text></rich_text>
+		<node custom_icon_id="0" foreground="" is_bold="False" name="Red Hat System Administration" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645474.36" ts_lastsave="1539609863.25" unique_id="6">
+			<rich_text scale="h2">Prof. : Brayer Marc
+
+Code : 2529</rich_text>
+			<rich_text>
+
+Addresse du cloud : </rich_text>
+			<rich_text link="webs http://91.121.52.156/owncloud/index.php/login">http://91.121.52.156/owncloud/index.php/login</rich_text>
+			<rich_text>
+    ID : cgi
+    MdP  : silenus
+    
+Pourquoi Red Hat
+   •  Orientation entreprise avec un support.
+
+Linux ?
+   • Kernel
+   • application
+
+On parle de GNU/Linux.
+   • projet (open source)
+   • Richard Stallmann
+      ◇ Recompiler sur x86
+      ◇ Le premier c'est Linus Torvald (Linux)
+
+Les distributions principales :
+   • Red Hat (entreprise)
+   • Debian (entreprise)
+   • SUSE (entreprise)
+   • Slackware (la 1ere)
+   • Arch Linux
+
+Particularité de Red Hat : Oracle et son support.
+
+On commencera par une CentOS (dérivée Red Hat) pour une histoire d'accès au dépot.
+
+Administration système
+   • système fichier
+   • users, permissions
+   • log, audit
+   • installation package
+   • configuration réseau
+   • openSSH
+   • virtualisation KVM
+
+CentOS
+   • Community Enterprise Operating System
+   • principalement destinée aux serveurs
+   • tous ses paquests, à l'exception du logo, sont identiques. Interopérales.
+
+De Fedora à CentOS
+   • Red Hat : stable, éprouvée, commerciale, support
+      ◇ CentOS : gratuit, support, communautaire
+      ◇ Fedora : user friendly
+      ◇ Scientific Linux
+
+Pourquoi CentOS ?
+   • compatibilité avec Red Hat
+   • nombreux logiciel packagés rpm (rarement deb)
+   • installation automatique via kickstart sont plus simple que chez Debian
+
+Architecture matérielle
+   • linux existe pour au moins trois architecture matérielles courantes
+      ◇ x86 ou i386/i686
+      ◇ x86_64
+      ◇ ppc : power pc anciens ordinateurs d'Apple
+
+Linux est un noyau
+   • le noyau est une interface entre des programmes et des périphériques physiques
+   • l'accès à ces periphériques se fait par l'intermédiaire d'appels systèmes qui sont identiques quelle que soit la machine
+   • cette encapsulation du matériel libère les développeurs de logiciels de la gestion complexe des périphériques : c'est l'OS qui s'en charge
+   • ainsi, si l'OS existe sur plusieurs architectures, l'interface d'utilisation et de programmation sera la même sur toutes.
+   • on dira alors que les système d'exploitation offre une machine virtuelle à l'utilisateur et aux programmes qu'il éxecute
+   • tous les systèmes d'exploitations sont basés sur ce principe
+
+Espaces noyau vs utilisateur
+   • linux est un OS monolithique, ecrit comme un ensemble de procédure qui peuvent s'appeler mutuellement
+   • pour l'user, il se présente comme un, seul gros fichier. Cependant i lcontient un ensemble de composants réalisant chaucun une tache bien précise
+   • Cette construction monolitique unduit un aspect important
+      ◇ notion d'exspace noyau : kernelspace
+      ◇ notion d'espace user : userspace
+
+Taches réalisées par le noyaux linux
+   • gestion processus, ordonnancer, scheduler
+   • gestion de la mémoire
+   • système du fichier virtuel
+   • service reseau
+   • communicatons inter-processus
+
+Installation Linux
+   • ISO
+   • PXE : par réseau (kickstart chez CentOS)
+   • netinstall : iso avec le minimum et le reste par le réseau
+
+Systèmes de fichiers
+   • /bin : commande usuelle
+   • /boot : demarrage7
+      ◇ Grub, bootloader
+      ◇ vmlinuz : noyaux
+   • /dev : périphérique
+      ◇ HD, souris, terminal...
+   • /etc : fichiers de configuration
+   • /home : repertoires users
+   • /lib et /lib64 : librairies systèmes partagées 
+   • /proc : état temps réel du kernel
+   • /sbin : commande admin (par défaut root)
+   • /usr : tout ce qui concerne l'utilisateurs
+   • /var : log, spool (printer), mail, site web
+
+</rich_text>
+			<rich_text scale="h1">Réseau</rich_text>
+			<rich_text>
+    Les fichiers de configuration sont dans /etc/sysconfig/network-scripts/
+
+    On peut voir l'état réseau avec ip -a addr.
+    
+    On a plusieurs commandes :
+      • nmtui : avec UI
+      • nmcli
+         ◇ Elles font appelles au network manager
+
+    Le fichier de config porte le nom ifcfg-nomCarteReseau
+
+Certifications
+   • LPI : peu utile
+   • Red Hat : 5h de TP, difficile à avoir.
+      ◇ RHCSA
+      ◇ RHCSE
+
+    On modifie le fichier pour mettre une ip fixe.
+    
+    On relance la config en restart les services associés
+      •  systemctl restart NetworkManager
+
+    On peut aussi faire :
+      •  ifdown NomCarte puis ifup NomCarte
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</rich_text>
 		</node>
-		<node custom_icon_id="0" foreground="" is_bold="False" name="Installation et Configuration de Microsoft Windows Server 2012" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645502.64" ts_lastsave="1538645502.64" unique_id="7">
+		<node custom_icon_id="0" foreground="" is_bold="False" name="Installation et Configuration de Microsoft Windows Server 2012" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645502.64" ts_lastsave="1539589011.39" unique_id="7">
 			<rich_text></rich_text>
 		</node>
 		<node custom_icon_id="0" foreground="" is_bold="False" name="Savoir se Présenter, les Nouvelles Compétences Acquises" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645530.48" ts_lastsave="1538645530.48" unique_id="8">
