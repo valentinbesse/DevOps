@@ -1528,7 +1528,7 @@ Export de variables
 Code :
 </rich_text>
 		</node>
-		<node custom_icon_id="0" foreground="" is_bold="False" name="Red Hat System Administration" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645474.36" ts_lastsave="1539686718.79" unique_id="6">
+		<node custom_icon_id="0" foreground="" is_bold="False" name="Red Hat System Administration" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645474.36" ts_lastsave="1539702955.43" unique_id="6">
 			<rich_text scale="h2">Prof. : Brayer Marc
 
 Code : 2529</rich_text>
@@ -1828,7 +1828,50 @@ On commencera par une CentOS (dérivée Red Hat) pour une histoire d'accès au d
     Permet d'installer les packages “à la main”.
     Elle n'installe pas les dépendances.
 
+</rich_text>
+			<rich_text scale="h1">Users, groups, permissions</rich_text>
+			<rich_text>
+    Les fichiers
+      • passwd
+         ◇ root:x:0:0:root:/root:/bin/bash
+         ◇ login:PWD:UID:GID:info:$HOME:shell
+         ◇ on peut créer à la main un utilisateur mais il faudra utiliser la commande “passwd” pour générer le mot de passe 
+         ◇ on priviligiera “adduser” ou “useradd”
 
+    Les commandes
+      • useradd : ajoute un utilisateur. Il est nécessaire d'avoir un /home, gid et un uid.
+      • userdel : supprime un utilisateur
+      • usermod : modifie un compte utilisateur
+      • groupadd : ajoute un groupe
+      • groupdel : supprime un groupe
+      • groupmod : modifie un groupe
+      • id : montre les informations de l'utilisateur
+      • groups : montre les groupes auqel l'utilisateur appartient
+
+    Permissions
+      • sur les repertoires
+         ◇ r-x : lire (ls -l)
+      • chmod : modifie les permissions
+         ◇ octale ou avec les lettres
+         ◇ x=1, w=2, r=4
+      • En plus des permissions classiques, il y a des permissions spéciales : suid
+         ◇ place un ‘s’ sur la partie propriétaire à la place du ‘x’ du propriétaire
+            ▪ rws------
+            ▪ on utilise chmod 4xxx (s'ajoute aux autres droit)
+            ▪ il donne un droit de root temporaire
+         ◇ autre permission speciale : sGID : rwxrws
+            ▪ on place cela parfois sur les répertoires pour que tous les fichiers crées héritent du groupe du repertoire
+            ▪ chmod 2xxx
+         ◇ dernier droit spécifique : sticky bit
+            ▪ chmod 1xxx
+            ▪ tous les droits sur un répertoire sauf que seul les propriétaires peuvent supprimer leurs fichiers
+
+    Changement de groupe ou propriétaire
+      • sur les fichiers et repertoires
+         ◇ chown : changement de propriétaire
+         ◇ chgrp : changement de groupe
+         ◇ ne peut être effectuée que par le root
+    
 
 
 
