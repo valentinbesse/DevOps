@@ -1528,7 +1528,7 @@ Export de variables
 Code :
 </rich_text>
 		</node>
-		<node custom_icon_id="0" foreground="" is_bold="False" name="Red Hat System Administration" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645474.36" ts_lastsave="1539609863.25" unique_id="6">
+		<node custom_icon_id="0" foreground="" is_bold="False" name="Red Hat System Administration" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645474.36" ts_lastsave="1539686718.79" unique_id="6">
 			<rich_text scale="h2">Prof. : Brayer Marc
 
 Code : 2529</rich_text>
@@ -1540,20 +1540,28 @@ Addresse du cloud : </rich_text>
     ID : cgi
     MdP  : silenus
     
-Pourquoi Red Hat
+</rich_text>
+			<rich_text scale="h1">Pourquoi Red Hat</rich_text>
+			<rich_text>
    •  Orientation entreprise avec un support.
 
-Linux ?
+</rich_text>
+			<rich_text scale="h1">Linux ?</rich_text>
+			<rich_text>
    • Kernel
    • application
 
-On parle de GNU/Linux.
+</rich_text>
+			<rich_text scale="h1">On parle de GNU/Linux.</rich_text>
+			<rich_text>
    • projet (open source)
    • Richard Stallmann
       ◇ Recompiler sur x86
       ◇ Le premier c'est Linus Torvald (Linux)
 
-Les distributions principales :
+</rich_text>
+			<rich_text scale="h1">Les distributions principales :</rich_text>
+			<rich_text>
    • Red Hat (entreprise)
    • Debian (entreprise)
    • SUSE (entreprise)
@@ -1564,7 +1572,9 @@ Particularité de Red Hat : Oracle et son support.
 
 On commencera par une CentOS (dérivée Red Hat) pour une histoire d'accès au dépot.
 
-Administration système
+</rich_text>
+			<rich_text scale="h1">Administration système</rich_text>
+			<rich_text>
    • système fichier
    • users, permissions
    • log, audit
@@ -1573,29 +1583,39 @@ Administration système
    • openSSH
    • virtualisation KVM
 
-CentOS
+</rich_text>
+			<rich_text scale="h1">CentOS</rich_text>
+			<rich_text>
    • Community Enterprise Operating System
    • principalement destinée aux serveurs
    • tous ses paquests, à l'exception du logo, sont identiques. Interopérales.
 
-De Fedora à CentOS
+</rich_text>
+			<rich_text scale="h1">De Fedora à CentOS</rich_text>
+			<rich_text>
    • Red Hat : stable, éprouvée, commerciale, support
       ◇ CentOS : gratuit, support, communautaire
       ◇ Fedora : user friendly
       ◇ Scientific Linux
 
-Pourquoi CentOS ?
+</rich_text>
+			<rich_text scale="h1">Pourquoi CentOS ?</rich_text>
+			<rich_text>
    • compatibilité avec Red Hat
    • nombreux logiciel packagés rpm (rarement deb)
    • installation automatique via kickstart sont plus simple que chez Debian
 
-Architecture matérielle
+</rich_text>
+			<rich_text scale="h1">Architecture matérielle</rich_text>
+			<rich_text>
    • linux existe pour au moins trois architecture matérielles courantes
       ◇ x86 ou i386/i686
       ◇ x86_64
       ◇ ppc : power pc anciens ordinateurs d'Apple
 
-Linux est un noyau
+</rich_text>
+			<rich_text scale="h1">Linux est un noyau</rich_text>
+			<rich_text>
    • le noyau est une interface entre des programmes et des périphériques physiques
    • l'accès à ces periphériques se fait par l'intermédiaire d'appels systèmes qui sont identiques quelle que soit la machine
    • cette encapsulation du matériel libère les développeurs de logiciels de la gestion complexe des périphériques : c'est l'OS qui s'en charge
@@ -1603,26 +1623,34 @@ Linux est un noyau
    • on dira alors que les système d'exploitation offre une machine virtuelle à l'utilisateur et aux programmes qu'il éxecute
    • tous les systèmes d'exploitations sont basés sur ce principe
 
-Espaces noyau vs utilisateur
+</rich_text>
+			<rich_text scale="h1">Espaces noyau vs utilisateur</rich_text>
+			<rich_text>
    • linux est un OS monolithique, ecrit comme un ensemble de procédure qui peuvent s'appeler mutuellement
    • pour l'user, il se présente comme un, seul gros fichier. Cependant i lcontient un ensemble de composants réalisant chaucun une tache bien précise
    • Cette construction monolitique unduit un aspect important
       ◇ notion d'exspace noyau : kernelspace
       ◇ notion d'espace user : userspace
 
-Taches réalisées par le noyaux linux
+</rich_text>
+			<rich_text scale="h1">Taches réalisées par le noyaux linux</rich_text>
+			<rich_text>
    • gestion processus, ordonnancer, scheduler
    • gestion de la mémoire
    • système du fichier virtuel
    • service reseau
    • communicatons inter-processus
 
-Installation Linux
+</rich_text>
+			<rich_text scale="h1">Installation Linux</rich_text>
+			<rich_text>
    • ISO
    • PXE : par réseau (kickstart chez CentOS)
    • netinstall : iso avec le minimum et le reste par le réseau
 
-Systèmes de fichiers
+</rich_text>
+			<rich_text scale="h1">Systèmes de fichiers</rich_text>
+			<rich_text>
    • /bin : commande usuelle
    • /boot : demarrage7
       ◇ Grub, bootloader
@@ -1651,7 +1679,9 @@ Systèmes de fichiers
 
     Le fichier de config porte le nom ifcfg-nomCarteReseau
 
-Certifications
+</rich_text>
+			<rich_text scale="h1">Certifications</rich_text>
+			<rich_text>
    • LPI : peu utile
    • Red Hat : 5h de TP, difficile à avoir.
       ◇ RHCSA
@@ -1660,21 +1690,143 @@ Certifications
     On modifie le fichier pour mettre une ip fixe.
     
     On relance la config en restart les services associés
-      •  systemctl restart NetworkManager
+      • systemctl restart NetworkManager
+      • systemctl stop
+      • systemctl start
+      • systemctl status
 
     On peut aussi faire :
-      •  ifdown NomCarte puis ifup NomCarte
+      • ifdown NomCarte puis ifup NomCarte
 
+</rich_text>
+			<rich_text scale="h1">Hostname</rich_text>
+			<rich_text>
+    /etc/hostmane
 
+  ex: </rich_text>
+			<rich_text link="webs http://www.marc.org">www.marc.org</rich_text>
+			<rich_text>
+        www=hostname
+        marc: =fqdn
 
+    full qualifed domaine name
 
+    /etc/hosts/resolutionlocal
+    permet de modifier le nom de domaine
 
+</rich_text>
+			<rich_text scale="h1">Firewalld</rich_text>
+			<rich_text>
+    firewalld --&gt; linux--&gt;Netfilter--&gt;kermel
+    systemctl stop firewalld
 
+    Firewalld est une sous couche de netfilter
+    iptables ( pour écrire les regles dans netfilter)
+    systemctl permet ( arrété demarrer visualiser les services )
+    
+</rich_text>
+			<rich_text scale="h1">Commande ip</rich_text>
+			<rich_text>
+    Remplace la commande ifconfig dans les nouvelles releases de Linux. 
+    ip addr ~ ifconfig
+    
+    Pour installer ifconfig voir package net-tools.
 
+</rich_text>
+			<rich_text scale="h1">Fichier de configuration</rich_text>
+			<rich_text>
+    Généralement les fichiers de configuration se terminant par ‘d’ signifie ‘daemon’.
+    Ils concernent le service.
+    
+</rich_text>
+			<rich_text scale="h1">RFC</rich_text>
+			<rich_text>
+    Request For Comments
+    Série de documentations.
+    
+</rich_text>
+			<rich_text scale="h1">Port</rich_text>
+			<rich_text>
+    De 1 à 1023 : reservé
+    Liste des services et des ports associés dans /etc/services
+    
+</rich_text>
+			<rich_text scale="h1">SSH</rich_text>
+			<rich_text>
+    secure shell
+    openssh  | client-serveur
+    
+    ex: ssh root@hostname
+           ssh ibrahim@ultimatecoach
+           
+    Le serveur écoute sur le port ssh (normalement le 22) tandis que le client ouvre un port aléatoire supérieur à 1023.
+    Il communique via le protocole TCP.
 
+</rich_text>
+			<rich_text scale="h1">OpenSSH</rich_text>
+			<rich_text>
+    Deux modes de connection
+      1. par password
+      2. par échange de clef
 
+    L'échange de clef se fait avec une clef publique/clef privé.
+    
+    ex: PGP (private good privacy) écrit par P. Zimmerman
+    
+    Chaque personne crée une clef publique et une privée.
+    La clef publique est envoyée sur le serveur que l'on veut joindre.
+    On chiffrera avec la clef privé et on pourra déchiffrer avec la clef publique.
 
+</rich_text>
+			<rich_text scale="h1">ssh-keygen</rich_text>
+			<rich_text>
+    option : -t [rsa | dsa] : les deux algorithmes classique de création de clef
+    On peut mettre une passphrase (fortement conseiller)
+    Les clefs sont dans ~/.ssh/ (id_rsa et id_rsa.pub)
+    
+</rich_text>
+			<rich_text scale="h1">ssh-copy-id</rich_text>
+			<rich_text>
+    Permet de copier la clef publique sur un serveur distant
+    
+</rich_text>
+			<rich_text scale="h1">Autres commandes SSH</rich_text>
+			<rich_text>
+    scp : pour la copie
+        scp fichierAEnvoyer userdestination@host:/chemin/où/j'envoie/fichier
+    sftp : pour faire du ftp sécurisé
+        get fichier [/ou/placer/le/fichier]: download fichier
+        put fichier [/ou/placer/le/fichier]: upload fichier
+    
+    Sur windows il existe winscp pour faire l'équivalent de scp.
+    Il existe aussi FileZilla (sftp)
 
+</rich_text>
+			<rich_text scale="h1">Système de package</rich_text>
+			<rich_text>
+    Tous les distributions Linux utilisent un système de package.
+    Un package est un binaire.
+    Ils sont stockés dans des dépots (serveurs), chez les FAI, centre Universitaire...
+    
+    Sur CentOS/Red Hat on utilise la commande yum.
+    
+    Les dépots sont définis dans /etc/yum.repos.d/*.repo
+    
+</rich_text>
+			<rich_text scale="h1">YUM</rich_text>
+			<rich_text>
+   • update : liste des packages à mettre à jours
+   • upgrade : mise-à-jour des packages
+   • install nomPackage : installe un package ainsi que ces dépendances (ex: librairies)
+   • search nomPackage : 
+
+</rich_text>
+			<rich_text scale="h1">RPM</rich_text>
+			<rich_text>
+    “Vrai” commande pour les packages.
+    Red Hat Package Manager
+    Permet d'installer les packages “à la main”.
+    Elle n'installe pas les dépendances.
 
 
 
