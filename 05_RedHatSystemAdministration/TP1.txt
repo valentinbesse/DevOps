@@ -1,0 +1,3 @@
+TP 1: on va installer et configurer un service DNS sur une machine virtuelle pour que la seconde machine virtuelle puisse se connecter.
+
+On installe bind et bind-utils sur la VM1

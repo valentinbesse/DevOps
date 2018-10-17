@@ -1528,7 +1528,7 @@ Export de variables
 Code :
 </rich_text>
 		</node>
-		<node custom_icon_id="0" foreground="" is_bold="False" name="Red Hat System Administration" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645474.36" ts_lastsave="1539702955.43" unique_id="6">
+		<node custom_icon_id="0" foreground="" is_bold="False" name="Red Hat System Administration" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645474.36" ts_lastsave="1539787218.48" unique_id="6">
 			<rich_text scale="h2">Prof. : Brayer Marc
 
 Code : 2529</rich_text>
@@ -1831,14 +1831,18 @@ On commencera par une CentOS (dérivée Red Hat) pour une histoire d'accès au d
 </rich_text>
 			<rich_text scale="h1">Users, groups, permissions</rich_text>
 			<rich_text>
-    Les fichiers
+</rich_text>
+			<rich_text scale="h2">    Les fichiers</rich_text>
+			<rich_text>
       • passwd
          ◇ root:x:0:0:root:/root:/bin/bash
          ◇ login:PWD:UID:GID:info:$HOME:shell
          ◇ on peut créer à la main un utilisateur mais il faudra utiliser la commande “passwd” pour générer le mot de passe 
          ◇ on priviligiera “adduser” ou “useradd”
 
-    Les commandes
+</rich_text>
+			<rich_text scale="h2">    Les commandes</rich_text>
+			<rich_text>
       • useradd : ajoute un utilisateur. Il est nécessaire d'avoir un /home, gid et un uid.
       • userdel : supprime un utilisateur
       • usermod : modifie un compte utilisateur
@@ -1848,7 +1852,9 @@ On commencera par une CentOS (dérivée Red Hat) pour une histoire d'accès au d
       • id : montre les informations de l'utilisateur
       • groups : montre les groupes auqel l'utilisateur appartient
 
-    Permissions
+</rich_text>
+			<rich_text scale="h2">    Permissions</rich_text>
+			<rich_text>
       • sur les repertoires
          ◇ r-x : lire (ls -l)
       • chmod : modifie les permissions
@@ -1866,12 +1872,65 @@ On commencera par une CentOS (dérivée Red Hat) pour une histoire d'accès au d
             ▪ chmod 1xxx
             ▪ tous les droits sur un répertoire sauf que seul les propriétaires peuvent supprimer leurs fichiers
 
-    Changement de groupe ou propriétaire
+</rich_text>
+			<rich_text scale="h2">    Changement de groupe ou propriétaire</rich_text>
+			<rich_text>
       • sur les fichiers et repertoires
          ◇ chown : changement de propriétaire
          ◇ chgrp : changement de groupe
          ◇ ne peut être effectuée que par le root
+
+</rich_text>
+			<rich_text scale="h1">Log</rich_text>
+			<rich_text>
+   • Sont situés dans /var/log
+      ◇ le service en charge des logs est Rsyslog
+         ▪ son fichier de config est /etc/rsyslog.conf
+   • sont organisés dans des fichiers ex: /var/log/messages
+      ◇ pour choisir ce que l'on inclut (voir rsyslog.conf) : catégorie.sévérité (ex : mail.info)
+      ◇ si on a la commande none c'est que l'on exclut un élement (ex: *.info.none : on n'exclut tous les messages d'information de toutes les catégories).
     
+</rich_text>
+			<rich_text scale="h1">DNS</rich_text>
+			<rich_text>
+   • résolution DNS (Domain Name Service)
+      ◇ permet de lier les FQDN (Full Qualified Domain Name) ex: valentin.org vers l'IP
+      ◇ on interroge un dns lorsque l'on veut joindre un site web.
+      ◇ il y a plusieurs serveurs dns :
+         ▪ ceux qui contiennent les .org, .edu, .fr, .gov ...
+            - ce sont les DNS:TLD
+            - c'est “un peu&quot; les racines d'internet
+            - ils sont liés aux serveurs racines (13 serveurs à la NASA)
+         ▪ puis il y a les marc.edu, bill.org, aumbox.net
+            - c'est les DNS du serveur personnel.
+         ▪ lorsque l'on veut se conntecter à un site (ex: test.bill.org quand on est mcp.marc.edu), les étapes sont :
+            1. cache de la machine
+            2. si non, interroge mon serveur DNS (celui configuré, domaine ou FAI... etc) et notamment le cache du serveur DNS
+            3. si non, envoie aux serveurs racines qui envoie au DNS:TLD de l'extension du nom de domaine correspondante ( ici .org) qui nous renvoie vers la machine bill.org
+            4. on interroge la machine bill.org qui nous renvoie test.bill.org
+            5. la prochaine fois, on aura le site en cache.
+      ◇ il est nécessaire d'indiquer sur /etc/resolv.conf quelle est l'adresse ip du dns
+
+    Pour mettre en place un dns on utilise bind
+      • changer fichier de conf (named.conf)
+      • indiquer les zones et placer les fichiers correspondant dans /var/named/
+      • relancer named.service
+      • modifier le fichier de connection /etc/syslog/network-scripts/ifcfg-ens33
+      • relancer network-manager
+      • modifier /etc/resolv.conf pour indiquer le nouveau dns
+
+    Dans la zone dns il y a different nom de propriétés
+      • A : addresse
+      • NS : nom de serveur
+      • CNAME : alias (canonical name)
+      • MX : serveur mail
+      • PTR : pointeur reverse
+
+    Zone DNS inversée
+      • se termine toujours .in-addr.arpa
+      • on met le champ d'IP à l'envers exemple pour 10.0.0.x on note 0.0.10
+         ◇ 0.0.10.in-addr.arpa
+      • Dans le fichier on renseigne les PTR en indiquant les morceaux d'adresses à considérer mais inversées ! (ex 10.0.10.11 -&gt; 11.10)
 
 
 
@@ -1918,7 +1977,7 @@ On commencera par une CentOS (dérivée Red Hat) pour une histoire d'accès au d
 		<node custom_icon_id="0" foreground="" is_bold="False" name="Puppet" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1538645605.17" ts_lastsave="1538645605.17" unique_id="18">
 			<rich_text></rich_text>
 		</node>
-		<node custom_icon_id="0" foreground="" is_bold="False" name="Tips" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1539095105.36" ts_lastsave="1539250037.63" unique_id="19">
+		<node custom_icon_id="0" foreground="" is_bold="False" name="Tips" prog_lang="custom-colors" readonly="False" tags="" ts_creation="1539095105.36" ts_lastsave="1539780068.6" unique_id="19">
 			<rich_text scale="h1">Divers</rich_text>
 			<rich_text>
 
@@ -1929,7 +1988,21 @@ On commencera par une CentOS (dérivée Red Hat) pour une histoire d'accès au d
       • \t : tabulation horizontale
       • \v : tabulation verticales
       • dirname $HOME/Exos/C2_3.sh : renvoie le chemin (repertoire sans nom de fichier)
-      • basename $HOME/Exos/C2_3.sh : renvoie le nom du fichier</rich_text>
+      • basename $HOME/Exos/C2_3.sh : renvoie le nom du fichier
+
+    </rich_text>
+			<rich_text scale="h2">Red Hat System</rich_text>
+			<rich_text>
+         • site avec informations pour linux
+            ◇ </rich_text>
+			<rich_text link="webs http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/admunix/cours-linux/Welcome.html">http://jean-luc.massat.perso.luminy.univ-amu.fr/ens/admunix/cours-linux/Welcome.html</rich_text>
+			<rich_text>
+         • DNS
+            ◇ </rich_text>
+			<rich_text link="webs https://www.lecoindesdocs.fr/2016/07/21/installation-et-configuration-dun-serveur-dns-bind-centos-7-2/">https://www.lecoindesdocs.fr/2016/07/21/installation-et-configuration-dun-serveur-dns-bind-centos-7-2/</rich_text>
+			<rich_text>
+            ◇ </rich_text>
+			<rich_text link="webs https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7">ocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7</rich_text>
 		</node>
 	</node>
 </cherrytree>
